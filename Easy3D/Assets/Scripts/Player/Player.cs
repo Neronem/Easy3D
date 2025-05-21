@@ -24,6 +24,4 @@ public class Player : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerCondition = GetComponent<PlayerCondition>();
     }
-    
-    
 }

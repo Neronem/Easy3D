@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 mouseDelta;
     
     private Animator animator;
-    private Rigidbody _rigidbody;
+    public Rigidbody _rigidbody;
 
     void Start()
     {
