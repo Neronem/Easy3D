@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     private static Player instance;
     public PlayerMovement playerMovement;
+    public PlayerCondition playerCondition;
     
     public static Player Instance
     {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
             instance = this;
         }
         playerMovement = GetComponent<PlayerMovement>();
+        playerCondition = GetComponent<PlayerCondition>();
     }
     
     
