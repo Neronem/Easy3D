@@ -34,10 +34,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (IsGround())
-        {
-            curJumpCount = 0;
-        }
     }
 
     private void FixedUpdate()
@@ -94,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (IsGround())
+        {
+            curJumpCount = 0;
+        }
+        
         if (context.phase == InputActionPhase.Performed && curJumpCount < maxJumpCount)
         {
             Debug.Log(IsGround());
