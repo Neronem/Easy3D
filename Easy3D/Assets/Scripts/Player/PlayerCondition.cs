@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
 {
-    public ConditionGroup conditionGroup;   
+    public ConditionGroup conditionGroup;
+    public bool invincible;
     
-    Condition health {get {return conditionGroup.health;}}
+    Condition Health {get { return conditionGroup.health; }}
+
+    public void TakeDamage(int value)
+    {
+        if (!invincible)
+        {
+            Health.Add(value);
+        }
+    }
 }

@@ -6,3 +6,8 @@ public interface IShowInfoByRayCast
 {
     public string GetText();
 }
+
+public interface IInteractable
+{
+    public void OnInteract();
+}

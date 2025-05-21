@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemObject : MonoBehaviour, IShowInfoByRayCast
+public class ItemObject : MonoBehaviour, IShowInfoByRayCast, IInteractable
 {
     public ItemData data;
 
@@ -10,5 +10,12 @@ public class ItemObject : MonoBehaviour, IShowInfoByRayCast
     {
         string str = $"{data.itemName} \n {data.itemDescription}";
         return str; 
+    }
+
+    public void OnInteract()
+    {
+        Player.Instance.playerItem.playerItemData = data;
+        Inventory.gotItem.Invoke();
+        Destroy(gameObject);
     }
 }

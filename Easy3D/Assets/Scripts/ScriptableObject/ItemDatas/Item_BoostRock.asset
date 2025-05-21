@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: "\uBD80\uC2A4\uD130\uC9F1\uB3CC"
   itemDescription: "\uBE68\uB77C\uC9C4 \uACF0. 10\uCD08\uAC04 \uC18D\uB3C4 \uC99D\uAC00."
   itemType: 0
-  itemIcon: {fileID: 21300000, guid: b53822ec75d701e49b9947d1d09fd81e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 43046426625693b41b1c2ee199d4c15a, type: 3}
   itemPrefab: {fileID: 2158441978240042449, guid: 388683de01c5dd843ac8072712924ea7, type: 3}

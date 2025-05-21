@@ -6,22 +6,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private static Player instance;
+    private static Player _instance;
     public PlayerMovement playerMovement;
     public PlayerCondition playerCondition;
+    public PlayerItem playerItem;
     
     public static Player Instance
     {
-        get { return instance; }
+        get { return _instance; }
     }
 
     private void Start()
     {
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
         }
         playerMovement = GetComponent<PlayerMovement>();
         playerCondition = GetComponent<PlayerCondition>();
+        playerItem = GetComponent<PlayerItem>();
     }
 }

@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
+    private int curJumpCount;
+    public int maxJumpCount = 1;
     private Vector2 curMovement;
     public LayerMask groundLayer;
     
@@ -32,7 +34,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        
+        if (IsGround())
+        {
+            curJumpCount = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -89,9 +94,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && IsGround())
+        if (context.phase == InputActionPhase.Performed && curJumpCount < maxJumpCount)
         {
+            Debug.Log(IsGround());
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z); // 현재 y의 가속도 초기화
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            Debug.Log(curJumpCount);
+            curJumpCount++;
+            Debug.Log(curJumpCount);
         }
     }
 
@@ -107,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.1f, groundLayer))
+            if (Physics.Raycast(rays[i], 0.05f, groundLayer))
             {
                 return true;
             }
