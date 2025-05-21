@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 1713375060}
   - component: {fileID: 1713375059}
   - component: {fileID: 1713375058}
+  - component: {fileID: 1713375061}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -521,7 +522,19 @@ MonoBehaviour:
     m_ActionId: 86aa9310-c2fa-4234-84b7-2eeff8fc2630
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1713375058}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ab315730-2aa7-42cb-9abd-97f3967b1bd6
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
@@ -546,6 +559,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpForce: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 55
   cameraContainer: {fileID: 651952982}
   minXLook: -90
   maxXLook: 17
@@ -586,6 +603,27 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!95 &1713375061
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713375053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b7822eb5951163b48830b6d9bcbf48b4, type: 3}
+  m_Controller: {fileID: 9100000, guid: 82850b8bb1a88ee4084740c6d8acf34a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &23868834625943677
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,27 +1502,6 @@ Transform:
   - {fileID: 8903858074055276157}
   m_Father: {fileID: 2897878082924030577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3734775969541866880
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7962199819969676608}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b7822eb5951163b48830b6d9bcbf48b4, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6b74c0471f91af34f8e98a4d46810410, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3765320166969760076
 Transform:
   m_ObjectHideFlags: 0
@@ -2553,7 +2570,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7292658344853544954}
-  - component: {fileID: 3734775969541866880}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
