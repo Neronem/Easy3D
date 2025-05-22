@@ -13,20 +13,20 @@ public class Interaction : MonoBehaviour
     private IShowInfoByRayCast showInfoByRayCast; // 보유한 정보 텍스트가 있는지?
     private IInteractable interactable; // 보유한 상호작용 동작이 있는지?
     
-    private Camera camera;
+    private Camera _camera;
     
     private Coroutine alreadyHaveCoroutine;
     
     void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
         promptText.text = string.Empty;
         alreadyHaveText.text = string.Empty;
     }
 
     void Update()
     {
-        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 8f))
