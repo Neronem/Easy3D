@@ -31,19 +31,21 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    private void Update()
-    {
-    }
-
+    
     private void FixedUpdate()
     {
-        Move();
+        if (CharacterManager.Instance.Player.playerCondition.playerDead == false)
+        {
+            Move();
+        }
     }
 
     private void LateUpdate()
     {
-        CameraLook();
+        if (CharacterManager.Instance.Player.playerCondition.playerDead == false)
+        {
+            CameraLook();
+        }
     }
 
     void Move()
@@ -97,12 +99,9 @@ public class PlayerMovement : MonoBehaviour
         
         if (context.phase == InputActionPhase.Performed && curJumpCount < maxJumpCount)
         {
-            Debug.Log(IsGround());
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z); // 현재 y의 가속도 초기화
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
-            Debug.Log(curJumpCount);
             curJumpCount++;
-            Debug.Log(curJumpCount);
         }
     }
 

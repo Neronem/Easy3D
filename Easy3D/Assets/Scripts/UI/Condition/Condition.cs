@@ -23,7 +23,7 @@ public class Condition : MonoBehaviour
         uiBar.fillAmount = curValue / maxValue;
     }
 
-    public void Add(float value)
+    public void ChangeHealth(float value)
     {
         curValue = Mathf.Min(Mathf.Max(curValue + value, 0), maxValue);
     }

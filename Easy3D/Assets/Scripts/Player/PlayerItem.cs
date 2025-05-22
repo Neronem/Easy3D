@@ -15,7 +15,7 @@ public class PlayerItem : MonoBehaviour
         if (context.phase == InputActionPhase.Started && playerItemData != null)
         {
             playerItemData.Use();
-            Inventory.itemGone.Invoke();
+            Inventory.instance.TriggerItemGone();
             playerItemData = null;
         }
     }
@@ -25,7 +25,7 @@ public class PlayerItem : MonoBehaviour
         if (context.phase == InputActionPhase.Started && playerItemData != null)
         {
             Instantiate(playerItemData.itemPrefab, transform.position + (transform.forward * 3f), Quaternion.identity);
-            Inventory.itemGone.Invoke();
+            Inventory.instance.TriggerItemGone();
             playerItemData = null;
         }
     }

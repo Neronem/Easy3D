@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemObject : MonoBehaviour, IShowInfoByRayCast, IInteractable
@@ -8,14 +6,14 @@ public class ItemObject : MonoBehaviour, IShowInfoByRayCast, IInteractable
 
     public string GetText()
     {
-        string str = $"{data.itemName} \n {data.itemDescription}";
-        return str; 
+        return $"{data.itemName} \n {data.itemDescription}";
     }
 
     public void OnInteract()
     {
         CharacterManager.Instance.Player.playerItem.playerItemData = data;
-        Inventory.gotItem.Invoke();
+        
+        Inventory.instance.TriggerGotItem();  // static 없이 메서드 호출
         Destroy(gameObject);
     }
 }
