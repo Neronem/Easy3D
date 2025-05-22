@@ -55,7 +55,7 @@ public class Interaction : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && interactable != null)
         {
-            if (Player.Instance.playerItem.playerItemData == null)
+            if (CharacterManager.Instance.Player.playerItem.playerItemData == null)
             {
                 interactable.OnInteract();
             }

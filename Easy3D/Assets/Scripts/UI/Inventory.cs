@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     
     public void UpdateIcon()
     {
-        iconImage.sprite = Player.Instance.playerItem.playerItemData.itemIcon;
+        iconImage.sprite = CharacterManager.Instance.Player.playerItem.playerItemData.itemIcon;
     }
 
     public void DeleteIcon()

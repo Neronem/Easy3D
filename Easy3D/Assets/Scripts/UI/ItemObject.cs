@@ -14,7 +14,7 @@ public class ItemObject : MonoBehaviour, IShowInfoByRayCast, IInteractable
 
     public void OnInteract()
     {
-        Player.Instance.playerItem.playerItemData = data;
+        CharacterManager.Instance.Player.playerItem.playerItemData = data;
         Inventory.gotItem.Invoke();
         Destroy(gameObject);
     }

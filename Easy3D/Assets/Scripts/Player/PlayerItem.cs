@@ -9,15 +9,6 @@ using UnityEngine.UI;
 public class PlayerItem : MonoBehaviour
 {
     public ItemData playerItemData = null;
-    
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-
-    }
 
     public void OnUseItem(InputAction.CallbackContext context)
     {
@@ -55,22 +46,22 @@ public class PlayerItem : MonoBehaviour
 
     private IEnumerator SpeedUpCoroutine()
     {
-        Player.Instance.playerMovement.moveSpeed += 10f;
+        CharacterManager.Instance.Player.playerMovement.moveSpeed += 10f;
         yield return new WaitForSeconds(10f);
-        Player.Instance.playerMovement.moveSpeed -= 10f;
+        CharacterManager.Instance.Player.playerMovement.moveSpeed -= 10f;
     }
 
     private IEnumerator DoubleJumpAbleCoroutine()
     {
-        Player.Instance.playerMovement.maxJumpCount = 2;
+        CharacterManager.Instance.Player.playerMovement.maxJumpCount = 2;
         yield return new WaitForSeconds(10f);
-        Player.Instance.playerMovement.maxJumpCount = 1;
+        CharacterManager.Instance.Player.playerMovement.maxJumpCount = 1;
     }
 
     private IEnumerator InvincibleCoroutine()
     {
-        Player.Instance.playerCondition.invincible = true;
+        CharacterManager.Instance.Player.playerCondition.invincible = true;
         yield return new WaitForSeconds(10f);
-        Player.Instance.playerCondition.invincible = false;
+        CharacterManager.Instance.Player.playerCondition.invincible = false;
     }
 }
