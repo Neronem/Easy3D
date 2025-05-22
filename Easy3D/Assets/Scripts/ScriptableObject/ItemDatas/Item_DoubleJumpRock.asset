@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978e7c3acd83c0c4b831f57ad9de480e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8127903789c4478ad40a7b73cacbe88, type: 3}
   m_Name: Item_DoubleJumpRock
   m_EditorClassIdentifier: 
   itemName: "\uCD95\uC9C0\uBC95\uC9F1\uB3CC"
-  itemDescription: "\uCD95\uC9C0\uBC95\uC744 \uBC30\uC6B0\uB2E4. 10\uCD08\uAC04 \uB354\uBE14\uC810\uD504
-    \uAC00\uB2A5."
-  itemType: 1
+  itemDescription: "\uCD95\uC9C0\uBC95 : 10\uCD08\uAC04 2\uB2E8\uC810\uD504 \uAC00\uB2A5."
   itemIcon: {fileID: 21300000, guid: e12e1a0e4a7453c42932e826264d0473, type: 3}
   itemPrefab: {fileID: 4341210351814077916, guid: 617ec88f180b92c4c8ecc907e51b1fe0, type: 3}
+  duration: 10
