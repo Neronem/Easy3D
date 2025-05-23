@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float wallCheckDistance = 2f;
     public float climbSpeed = 0.2f;
     public LayerMask climbableLayer;
-    private bool isClimbing = false;
+    public bool isClimbing = false;
     
     void Start()
     {
@@ -44,9 +44,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CharacterManager.Instance.Player.playerCondition.playerDead == false)
         {
-            CheckWallClimb(); // 벽 타기 검사 추가
-            if (!isClimbing)
+            if (isClimbing)
+            {
+                WallClimb(); 
+            }
+            else
+            {
                 Move();
+            }
         }
     }
 
@@ -135,41 +140,13 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    void CheckWallClimb()
+    void WallClimb()
     {
-        Vector3 rayOrigin = transform.position + Vector3.up * 1.0f; // 캐릭터의 중심(1미터 위)
-
-        Ray ray;
-        if (isClimbing)
+        _rigidbody.velocity = new Vector3(0, 0, 0);
+        
+        if (Input.GetKey(KeyCode.W)) // 앞으로 가려는 의지 있을 때만    
         {
-            ray = new Ray(rayOrigin, -transform.up);
-        }
-        else
-        {
-            ray = new Ray(rayOrigin, transform.forward);
-        }
-
-        RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * wallCheckDistance, Color.green);
-        if (Physics.Raycast(ray, out hit, wallCheckDistance, climbableLayer))
-        {
-            
-            Debug.Log("Wall Climb!");
-            isClimbing = true;
-            _rigidbody.velocity = new Vector3(0, 0, 0);
-            
-            Quaternion climbRotation = Quaternion.LookRotation(Vector3.up, hit.normal);
-            transform.rotation = Quaternion.Lerp(transform.rotation, climbRotation, 10f * Time.deltaTime);
-            
-            if (Input.GetKey(KeyCode.W)) // 앞으로 가려는 의지 있을 때만    
-            {
-                transform.position += new Vector3(0, climbSpeed, 0);
-            }
-        }
-        else
-        {
-            isClimbing = false;
-            _rigidbody.useGravity = true;
+            transform.position += new Vector3(0, climbSpeed, 0);
         }
     }
 }

@@ -2049,6 +2049,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3630b8e1cc98ca04bb33a02205a82872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  rayCount: 7
+  spacing: 1.5
+  rayLength: 2
 --- !u!1 &1087231830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +2950,7 @@ MonoBehaviour:
   climbableLayer:
     serializedVersion: 2
     m_Bits: 128
+  isClimbing: 0
 --- !u!114 &1713375059
 MonoBehaviour:
   m_ObjectHideFlags: 0
