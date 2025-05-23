@@ -10,8 +10,6 @@
 
 ## 📁 스크립트 설명서
 
-아래 링크에서 각 폴더별 상세 README를 확인할 수 있습니다.
-
 - [🎒 Item 폴더 설명서](https://github.com/Neronem/Easy3D/blob/develop/Easy3D/Assets/Scripts/Item/README.md)  
   아이템 관련 스크립트 및 아이템 관리 기능
 
