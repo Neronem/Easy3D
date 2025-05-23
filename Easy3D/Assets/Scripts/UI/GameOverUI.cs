@@ -7,7 +7,7 @@ public class GameOverUI : MonoBehaviour
     public static GameOverUI instance;
     
     public GameObject gameOverPanel; 
-    private bool isGameOver = false;
+    public bool isGameOver = false;
 
     public Action OnGameOver; 
     private void Awake()
