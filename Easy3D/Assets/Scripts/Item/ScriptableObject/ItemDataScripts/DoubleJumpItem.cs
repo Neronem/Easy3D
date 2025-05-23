@@ -13,7 +13,7 @@ public class DoubleJumpItem : ItemData
         player.StartCoroutine(DoubleJumpAbleCoroutine(player));
     }
 
-    private IEnumerator DoubleJumpAbleCoroutine(Player player)
+    private IEnumerator DoubleJumpAbleCoroutine(Player player) // 더블점프 효과
     {
         player.playerMovement.maxJumpCount = 2;
         yield return new WaitForSeconds(duration);
